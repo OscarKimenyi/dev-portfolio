@@ -256,7 +256,7 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [filter, setFilter] = useState("all");
 
-  const categories = ["all", ...new Set(projects.map((p) => p.category))];
+  const categories = ["all", ...Array.from(new Set(projects.map((p) => p.category)))];
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
